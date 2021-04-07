@@ -70,7 +70,6 @@ for token in tweets[0:10]:
 
 
 ### Question 5. Named Entity Recognition first three tweets
-import spacy
 from spacy import displacy
 
 text = ("Sweet United Nations video. Just in time for Christmas." 
