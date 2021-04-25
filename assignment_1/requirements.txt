@@ -1,0 +1,13 @@
+spacy
+pandas
+torch
+wget
+transformers
+tensorflow
+scipy
+scikit-learn
+numpy
+NLTK
+six
+keras
+seaborn
