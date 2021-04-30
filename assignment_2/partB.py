@@ -1,5 +1,4 @@
 import spacy
-import pprint
 
 nlp = spacy.load("en_core_web_sm")
 text = open("datasets/conllst.2017.trial.simple.conll", "r").read()
@@ -7,9 +6,12 @@ text = text.split("\n")
 phrases = []
 phrase = []
 index = 0
+
+# Extract information from the given file
 for tok in text:
     if not tok.replace(" \t", ""):
         continue
+        
     token = tok.split("	")
     if int(token[0]) != index + 1:
         phrases.append(" ".join(phrase))
@@ -19,6 +21,7 @@ for tok in text:
     phrase.append(token[1])
 
 result = []
+# Runs spacy for every sentence, and save the output in the "result" list
 for phrase in phrases:
     doc = nlp(phrase)
     for token in doc:
