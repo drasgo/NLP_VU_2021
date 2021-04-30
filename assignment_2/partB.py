@@ -18,8 +18,18 @@ for tok in text:
     index = int(token[0])
     phrase.append(token[1])
 
+result = []
 for phrase in phrases:
     doc = nlp(phrase)
     for token in doc:
         print(token.i+1, token.text, token.lemma_, token.tag_, [elem.i for elem in doc if elem.text == str(token.head)][0]+1,
               token.dep_)
+        result.append(f"{token.i+1}	"
+                      f"{token.text}	"
+                      f"{token.lemma_}	"
+                      f"{token.tag_}	"
+                      f"{[elem.i for elem in doc if elem.text == str(token.head)][0]+1}	"
+                      f"{token.dep_}")
+
+open("cleaned_conllst_2017_trial_simple_conll", "w").write("\n".join(result))
+print("Done!")
