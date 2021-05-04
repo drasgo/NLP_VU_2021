@@ -8,11 +8,12 @@ phrase = []
 index = 0
 
 # Extract information from the given file
-for tok in text:
+for i, tok in enumerate(text):
     if not tok.replace(" \t", ""):
         continue
-        
+
     token = tok.split("	")
+    print(token)
     if int(token[0]) != index + 1:
         phrases.append(" ".join(phrase))
         phrase = []
@@ -20,19 +21,28 @@ for tok in text:
     index = int(token[0])
     phrase.append(token[1])
 
+    if i == len(text) - 2:
+        phrases.append(" ".join(phrase))
+        phrase = []
+
+
+
+print(phrases[-1])
+
 result = []
 # Runs spacy for every sentence, and save the output in the "result" list
 for phrase in phrases:
     doc = nlp(phrase)
     for token in doc:
-        print(token.i+1, token.text, token.lemma_, token.tag_, [elem.i for elem in doc if elem.text == str(token.head)][0]+1,
-              token.dep_)
+        # print(token.i+1, token.text, token.lemma_, token.tag_, [elem.i for elem in doc if elem.text == str(token.head)][0]+1,
+        #       token.dep_)
         result.append(f"{token.i+1}	"
                       f"{token.text}	"
                       f"{token.lemma_}	"
                       f"{token.tag_}	"
                       f"{[elem.i for elem in doc if elem.text == str(token.head)][0]+1}	"
                       f"{token.dep_}")
+    result.append(" ")
 
-open("cleaned_conllst_2017_trial_simple_conll", "w").write("\n".join(result))
+open("datasets/cleaned_conllst_2017_trial_simple_conll", "w").write("\n".join(result))
 print("Done!")
