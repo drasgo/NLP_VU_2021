@@ -23,7 +23,7 @@ for token in text:
         continue
 
     # In the dataset, the first value in each row is the index of the token, and we can use that to identify the different sentences, as each new sentence will restart the index from 1.
-    if int(token[0]) != index + 1:
+    if int(split_token[0]) != index + 1:
         sentence = clean_up_sentence(phrase)
         # Add the new pair key(sentence)-value(pre-tokenized sentence) to the dictionary
         phrases[sentence] = phrase
