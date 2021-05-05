@@ -1,6 +1,8 @@
 import re
 import pprint
 
+# --------------- Loading the files into lists ---------------
+
 output = open("datasets/cleaned_conllst_2017_trial_simple_conll", "r").read()
 output = output.split("\n")
 
@@ -13,7 +15,6 @@ for word in output:
 
     else:
         word = re.split(r'\t', word)
-        # print(word)
         sentence.append(word)
 
 golden = open("datasets/conllst.2017.trial.simple.dep.conll", "r").read()
@@ -40,50 +41,49 @@ print('The number of tokens per sentence for the output file: \n', lengths_outpu
 lengths_golden = [len(i) for i in sentences_gold]
 print('\nThe number of tokens per sentence for the golden file: \n', lengths_golden)
 
+print('\nAll sentences have the same number of tokens:', lengths_golden == lengths_output)
+
 # Does every sentence have a root node?
 root_check = []
 for sentence in sentences_output:
     nodes = [i[-1] for i in sentence]
-    if 'ROOT' in nodes:
+    if 'root' in nodes:
         root_check.append('True')
     else:
         root_check.append('False')
 
-print('\nDoes the parser find a ROOT node for every sentence?\n', root_check)
+print("\nDoes the parser find a root node for every sentence?\n", root_check)
 
 # Is the token assigned the same dependency head/label
 results = {}
-error_head = []
-error_label = []
+average_error_head = []
+average_error_label = []
 dep_dif = []
 for i, sentence in enumerate(sentences_output):
-    if i == 16:
-        continue
-    e_head = 0
-    e_label = 0
+    errors_head = 0
+    errors_label = 0
 
     dependent_dict_gold = {}
     dependent_dict_output = {}
 
     for j, word in enumerate(sentence):
-        if word[1] == sentences_gold[i][j][1]:
-            # Check for same dependency head
-            if word[4] != sentences_gold[i][j][4]:
-                e_head += 1
-            # Check for same dependency label
-            if word[5] != sentences_gold[i][j][5]:
-                e_label += 1
+        # Check for same dependency head
+        if word[4] != sentences_gold[i][j][4]:
+            errors_head += 1
+        # Check for same dependency label
+        if word[5] != sentences_gold[i][j][5]:
+            errors_label += 1
 
-            # Check for same dependents
-            if sentences_gold[i][j][4] in dependent_dict_gold:
-                dependent_dict_gold[sentences_gold[i][j][4]].append(sentences_gold[i][j][0])
-            else:
-                dependent_dict_gold[sentences_gold[i][j][4]] = [sentences_gold[i][j][0]]
+        # Check for same dependents
+        if sentences_gold[i][j][4] in dependent_dict_gold:
+            dependent_dict_gold[sentences_gold[i][j][4]].append(sentences_gold[i][j][0])
+        else:
+            dependent_dict_gold[sentences_gold[i][j][4]] = [sentences_gold[i][j][0]]
 
-            if word[4] in dependent_dict_output:
-                dependent_dict_output[word[4]].append(word[0])
-            else:
-                dependent_dict_output[word[4]] = [word[0]]
+        if word[4] in dependent_dict_output:
+            dependent_dict_output[word[4]].append(word[0])
+        else:
+            dependent_dict_output[word[4]] = [word[0]]
 
     # Check if the tokens have the same dependents
     if dependent_dict_gold != dependent_dict_output:
@@ -92,29 +92,25 @@ for i, sentence in enumerate(sentences_output):
     else:
         dep_dif.append(True)
 
-    error_head.append(round(e_head/len(sentence), 2))
-    error_label.append(round(e_label/len(sentence), 2))
+    average_error_head.append(round(errors_head/len(sentence), 2))
+    average_error_label.append(round(errors_label/len(sentence), 2))
 
-print("\nnumber of mislabeled dependency head:\n", error_head)
-print("\nnumber of mislabeled dependency label:\n", error_label)
-print('\nDo the tokens have the same dependents as in the gold file?\n', dep_dif)
+print("\nnumber of mislabeled dependency head per sentence:\n", average_error_head)
+print("\nnumber of mislabeled dependency label per sentence:\n", average_error_label)
+print('\nAll tokens have the same dependents as in the gold file?\n', dep_dif)
 
 
 # --------------- Q9 Error POS ---------------
-print()
+
 count_dict = {}
 error_dict = {}
 for i, sentence in enumerate(sentences_gold):
-    if i == 16:
-        continue
-
     for j, token in enumerate(sentence):
         if token[3] in count_dict:
             count_dict[token[3]] += 1
         else:
             count_dict[token[3]] = 1
             error_dict[token[3]] = 0
-
         if token != sentences_output[i][j]:
             error_dict[token[3]] += 1
 
@@ -123,7 +119,7 @@ for value in list(count_dict):
     error_pos[value] = round(error_dict[value] / count_dict[value], 3)
 
 error_pos = dict(sorted(error_pos.items(), key=lambda item: item[1], reverse=True))
-print('Sorted dictionary that displays the percentage of error per POS tag')
+print('\nSorted dictionary that displays the percentage of error per POS tag')
 pprint.pprint(error_pos, sort_dicts=False)
 
 # --------------- Q10 Error Label ---------------

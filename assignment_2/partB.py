@@ -53,6 +53,21 @@ def tokenizer(txt: str) -> Doc:
     else:
         raise ValueError('No tokenization available for input.')
 
+# Dictionary that maps spacy labels to golden standard labels.
+translation_dict = {
+    'ROOT': 'root'
+}
+
+def transform_labelset(token, dict):
+    """"
+    This function tries to map the label from spacy label set to a label from the golden standard label set.
+    """
+    if token in dict:
+        return dict[token]
+    else:
+        return token
+
+
 # Overrides spacy's tokenizer with our function
 nlp.tokenizer = tokenizer
 # Run spacy for each sentence and save the results in the "result" list (which is later going to be saved in a file)
@@ -67,7 +82,7 @@ for ph in phrases:
                       f"{token.lemma_}	"
                       f"{token.tag_}	"
                       f"{[elem.i for elem in parser if elem.text == str(token.head)][0]+1}	"
-                      f"{token.dep_}")
+                      f"{transform_labelset(token.dep_, translation_dict)}")
     result.append(" ")
 
 # Join the results on multiple lines and save the final output
