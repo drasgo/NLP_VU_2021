@@ -17,6 +17,7 @@
 17	Washington	Washington	NNP	18	compound
 18	area	area	NN	15	pobj
 19	.	.	.	5	punct
+ 
 1	Bush	Bush	NNP	2	nsubj
 2	nominated	nominate	VBD	2	ROOT
 3	Jennifer	Jennifer	NNP	5	compound
@@ -46,6 +47,7 @@
 27	W.	W.	NNP	28	compound
 28	Graae	Graae	NNP	25	dobj
 29	.	.	.	2	punct
+ 
 1	Bush	Bush	NNP	3	nsubj
 2	also	also	RB	3	advmod
 3	nominated	nominate	VBD	3	ROOT
@@ -76,6 +78,7 @@
 28	Montague	Montague	NNP	29	compound
 29	Steadman	Steadman	NNP	26	dobj
 30	.	.	.	3	punct
+ 
 1	The	the	DT	2	det
 2	sheikh	sheikh	NN	9	nsubjpass
 3	in	in	IN	2	prep
@@ -94,6 +97,7 @@
 16	launched	launch	VBN	17	amod
 17	bomb	bomb	NN	10	pobj
 18	.	.	.	9	punct
+ 
 1	He	he	PRP	4	nsubjpass
 2	could	could	MD	4	aux
 3	be	be	VB	4	auxpass
@@ -125,6 +129,7 @@
 29	did	do	VBD	10	conj
 30	n't	n't	RB	29	neg
 31	.	.	.	29	punct
+ 
 1	Today	today	NN	3	poss
 2	's	's	POS	1	case
 3	incident	incident	NN	4	nsubj
@@ -141,6 +146,7 @@
 14	in	in	IN	13	prep
 15	peace	peace	NN	14	pobj
 16	.	.	.	4	punct
+ 
 1	Nervous	nervous	JJ	2	amod
 2	people	people	NNS	3	nsubj
 3	make	make	VBP	3	ROOT
@@ -159,6 +165,7 @@
 16	arab	arab	JJ	17	amod
 17	attacks	attack	NNS	14	pobj
 18	.	.	.	8	punct
+ 
 1	A	a	DT	4	det
 2	la	la	FW	3	advmod
 3	guerre	guerre	JJ	4	amod
@@ -168,6 +175,7 @@
 7	la	la	FW	3	advmod
 8	guerre	guerre	NN	5	dobj
 9	!	!	.	5	punct
+ 
 1	In	in	IN	9	prep
 2	the	the	DT	4	det
 3	eastern	eastern	JJ	4	amod
@@ -189,6 +197,7 @@
 19	several	several	JJ	20	amod
 20	people	people	NNS	18	dobj
 21	.	.	.	9	punct
+ 
 1	The	the	DT	2	det
 2	US	US	NNP	3	nsubj
 3	lost	lose	VBD	3	ROOT
@@ -213,6 +222,7 @@
 22	was	be	VBD	3	conj
 23	safe	safe	JJ	22	acomp
 24	.	.	.	22	punct
+ 
 1	In	in	IN	7	prep
 2	Fallujah	Fallujah	NNP	1	pobj
 3	,	,	,	7	punct
@@ -233,6 +243,7 @@
 18	newlywed	newlywed	JJ	19	amod
 19	bride	bride	NN	15	dobj
 20	.	.	.	7	punct
+ 
 1	(	(	-LRB-	3	punct
 2	I	I	PRP	3	nsubj
 3	hope	hope	VBP	3	ROOT
@@ -262,6 +273,7 @@
 27	tradeoff	tradeoff	NN	22	attr
 28	)	)	-RRB-	22	punct
 29	.	.	.	3	punct
+ 
 1	The	the	DT	3	det
 2	US	US	NNP	3	compound
 3	troops	troop	NNS	4	nsubj
@@ -274,6 +286,7 @@
 10	killing	kill	VBG	4	advcl
 11	4	4	CD	10	dobj
 12	.	.	.	4	punct
+ 
 1	It	it	PRP	2	nsubj
 2	seems	seem	VBZ	2	ROOT
 3	clear	clear	JJ	2	oprd
@@ -310,6 +323,7 @@
 34	local	local	JJ	35	amod
 35	Iraqis	Iraqis	NNPS	33	pobj
 36	.	.	.	2	punct
+ 
 1	Google	Google	NNP	4	nsubj
 2	has	have	VBZ	4	aux
 3	finally	finally	RB	4	advmod
@@ -340,6 +354,7 @@
 28	heard	hear	VBN	24	relcl
 29	it	it	PRP	28	dobj
 30	.	.	.	4	punct
+ 
 1	Usually	usually	RB	4	advmod
 2	,	,	,	4	punct
 3	these	these	DT	4	nsubj
@@ -367,6 +382,7 @@
 25	's	's	POS	24	case
 26	plans	plan	NNS	22	pobj
 27	.	.	.	4	punct
+ 
 1	They	they	PRP	2	nsubj
 2	work	work	VBP	2	ROOT
 3	on	on	IN	2	prep
@@ -379,38 +395,37 @@
 10	so	so	CC	2	cc
 11	when	when	WRB	13	advmod
 12	they	they	PRP	13	nsubj
-13	hear	hear	VBP	29	advcl
+13	hear	hear	VBP	28	advcl
 14	a	a	DT	15	det
-15	company	company	NN	13	dobj
-16	who	who	WP	18	nsubjpass
-17	's	be	VBZ	18	auxpass
-18	stated	state	VBN	19	amod
-19	goals	goal	NNS	20	nsubj
-20	include	include	VBP	15	relcl
-21	"	"	``	20	punct
-22	Do	do	VB	24	aux
-23	n't	n't	RB	24	neg
-24	be	be	VB	20	xcomp
-25	evil	evil	JJ	24	acomp
-26	,	,	,	29	punct
-27	"	"	''	29	punct
-28	they	they	PRP	29	nsubj
-29	imagine	imagine	VBP	2	conj
-30	a	a	DT	15	det
-31	company	company	NN	29	dobj
-32	who	who	WP	17	nsubj
-33	's	be	VBZ	15	relcl
-34	eventually	eventually	RB	17	advmod
-35	history	history	NN	17	attr
-36	will	will	MD	24	aux
-37	be	be	VB	29	ccomp
-38	"	"	``	24	punct
-39	Do	do	VB	24	aux
-40	n't	n't	RB	24	neg
-41	be	be	VB	24	xcomp
-42	profitable	profitable	JJ	24	acomp
-43	.	.	.	2	punct
-44	"	"	''	2	punct
+15	company	company	NN	17	nsubj
+16	who's	who's	CD	17	npadvmod
+17	stated	state	VBN	18	amod
+18	goals	goal	NNS	19	nsubj
+19	include	include	VBP	13	ccomp
+20	"	"	``	19	punct
+21	Do	do	VB	23	aux
+22	n't	n't	RB	23	neg
+23	be	be	VB	19	xcomp
+24	evil	evil	JJ	23	acomp
+25	,	,	,	28	punct
+26	"	"	''	28	punct
+27	they	they	PRP	28	nsubj
+28	imagine	imagine	VBP	2	conj
+29	a	a	DT	16	det
+30	company	company	NN	16	compound
+31	who's	who's	CD	28	dobj
+32	eventually	eventually	RB	16	advmod
+33	history	history	NN	23	nsubj
+34	will	will	MD	23	aux
+35	be	be	VB	28	ccomp
+36	"	"	``	23	punct
+37	Do	do	VB	23	aux
+38	n't	n't	RB	23	neg
+39	be	be	VB	23	xcomp
+40	profitable	profitable	JJ	23	acomp
+41	.	.	.	2	punct
+42	"	"	''	2	punct
+ 
 1	It	it	PRP	2	nsubj
 2	's	be	VBZ	18	ccomp
 3	not	not	RB	2	neg
@@ -466,6 +481,7 @@
 53	respectable	respectable	JJ	54	amod
 54	idea	idea	NN	49	attr
 55	.	.	.	18	punct
+ 
 1	Read	read	VB	7	advcl
 2	the	the	DT	4	det
 3	entire	entire	JJ	4	amod
@@ -478,3 +494,24 @@
 10	,	,	,	7	punct
 11	too	too	RB	7	advmod
 12	.	.	.	7	punct
+ 
+1	My	my	PRP$	3	poss
+2	opinion	opinion	NN	3	compound
+3	piece	piece	NN	16	nsubj
+4	on	on	IN	3	prep
+5	the	the	DT	6	det
+6	implications	implication	NNS	4	pobj
+7	of	of	IN	6	prep
+8	Arafat	Arafat	NNP	10	poss
+9	's	's	POS	8	case
+10	passing	passing	NN	7	pobj
+11	for	for	IN	16	mark
+12	al	al	NNP	14	compound
+13	-	-	HYPH	14	punct
+14	Qaeda	Qaeda	NNP	16	nsubj
+15	has	have	VBZ	16	aux
+16	appeared	appear	VBN	16	ROOT
+17	at	at	IN	16	prep
+18	Newsday	Newsday	NNP	17	pobj
+19	.	.	.	16	punct
+ 
